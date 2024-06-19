@@ -44,32 +44,26 @@ Solution:-
  * @return { increment: Function, decrement: Function, reset: Function }
  */
 var createCounter = function(init) {
-     var a=init;
-    function increment(){
-       
+    var a = init;
+    
+    function increment() {
         a++;
         return a;
     }
-    function decrement(){
-        var a=init;
-        if(a>0){
-        --a;
-        }else{
+    
+    function decrement() {
         a--;
-        }
-      
         return a;
     }
-
-    function reset()
-    {
-       var a=init;
-       return a
+    
+    function reset() {
+        a = init; // Correctly reset the outer variable a
+        return a;
     }
     
-return{
-    increment,
-    decrement,
-    reset
-}
+    return {
+        increment,
+        decrement,
+        reset
+    };
 };
